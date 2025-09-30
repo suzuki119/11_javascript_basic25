@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>カウントアップ装置</title>
+</head>
+
+<body>
+    <p id="counter">
+
+    </p>
+
+    <button id="plus">+1</button>
+    <button id="minus">-1</button>
+    <button id="reset">reset</button>
+
+    <script>
+        let count = 0;
+        console.log(count);//コンソールにcount表示(検証から見る)
+
+        let counter = document.querySelector('p#counter');
+        console.log(counter);
+
+        counter.textContent = count;
+        //counter(要素p)の中身をcountに変える
+
+        const plusBtn = document.
+            //宣言は基本constで、その時には同時に代入も必要
+            querySelector('button#plus');
+        //素材は全て取り込む
+        
+        plusBtn.addEventListener("click", function () {
+            //変数countに+1する。
+            count++;
+            //countをcounterに代入して、表示させる。
+            counter.textContent = count;
+        });
+
+        const minusBtn = document.querySelector('button#minus');
+        minusBtn.addEventListener("click", function () {
+            //変数countに-1する。
+            count--;
+            //countをcounterに代入して、表示させる。
+            counter.textContent = count;
+        });
+
+        const resetBtn = document.querySelector('button#reset');
+        resetBtn.addEventListener("click", function () {
+            //変数countに0する。
+            count = 0;
+            //countをcounterに代入して、表示させる。
+            counter.textContent = count;
+        });
+
+        let a;//変数宣言
+        a = 5 + 5;
+        console.log("a=", a);
+        let b = 10;//宣言、代入を同時に
+        //同じ変数（a,b）を後から重複して宣言できない
+    </script>
+</body>
+
+</html>

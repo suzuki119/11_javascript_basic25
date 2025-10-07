@@ -1,0 +1,53 @@
+question2.html
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数・演算子・要素の取得・イベント処理振り返り</title>
+</head>
+
+<body>
+    <h1>変数・演算子・要素の取得・イベント処理振り返り</h1>
+    <p id="result"></p>
+    <button id="hello">あいさつ</button>
+    <p id="msg"></p>
+    <button id="hidden">削除する</button>
+
+    <script>
+        //Q1
+        let number = 10;
+
+        //Q2
+        let result = document.querySelector('p#result');
+        console.log(result);
+
+        //Q3
+        number--;
+        result.textContent = number;
+
+        //Q4
+        const text = document.querySelector('p#msg')
+
+        const helloBtn = document.querySelector('button#hello');
+
+        helloBtn.addEventListener
+            ("click", function () {
+                text.textContent = 'こんにちは';
+            });
+
+        //Q5
+        const deleteBtn = document.querySelector('button#hidden');
+
+        deleteBtn.addEventListener
+            ("click", function () {
+                text.textContent = '';
+            });
+
+
+
+    </script>
+</body>
+
+</html>

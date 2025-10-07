@@ -30,8 +30,10 @@
             //宣言は基本constで、その時には同時に代入も必要
             querySelector('button#plus');
         //素材は全て取り込む
-        
+
+        //clickイベントの登録
         plusBtn.addEventListener("click", function () {
+            console.log("クリックしたぞ");
             //変数countに+1する。
             count++;
             //countをcounterに代入して、表示させる。
@@ -59,6 +61,8 @@
         console.log("a=", a);
         let b = 10;//宣言、代入を同時に
         //同じ変数（a,b）を後から重複して宣言できない
+        //再代入可能 b=20
+        //再宣言ダメ let b=20;
     </script>
 </body>
 

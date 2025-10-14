@@ -87,7 +87,8 @@
     const answers = ['TSIT', 'アポロ11号', '3'];
 
     let index = 0;
-    questionElem.textContent = questions[index]
+    let answercount = 0;
+    questionElem.textContent = questions[index];
 
     //回答
     respondBtn.addEventListener
@@ -98,6 +99,7 @@
             console.log('回答ボタンをクリック');
             if (answer === answers[index]) {
                 resultMessage.textContent = '正解です';
+                answercount++;
             } else {
                 resultMessage.textContent = '不正解です';
             }
@@ -105,7 +107,31 @@
             answerInput.value = '';
             //初期化
             questionElem.textContent = questions[index];
+
+            //lengthは配列の要素数
+            if (index === questions.length) {
+                console.log("問題終了");
+                console.log("正解数＝", answercount);
+                questionElem.textContent = (answercount + "問正解");
+            }
         });
+
+
+
+</script>
+
+<script>
+    //文字列の連結練習
+    //文字列と数値型
+    console.log('円周率は、' + 3.14 + 'です');
+    console.log('足すと、' + 3.14 + 4.68 + 'です');
+
+    //文字列と数値
+    console.log('足すと、' + (3.14 + 4.68) + 'です');
+    console.log(3.14 + 4.68 + 'です');
+
+    console.log('2' - 1 + "これ頭おかしい")
+    console.log('2' - 1 + "これ頭おかしい")
 
 
 

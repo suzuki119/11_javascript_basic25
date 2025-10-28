@@ -18,10 +18,34 @@
         console.log(elements);
 
         //window.alertでもある（windowは省略可）
-        window.console.lag('windowの中のもの')
+        window.console.log('windowの中のもの')
 
         const tag = document.querySelector('#sample');
         tag.textContent = "テキストを書き換えます";
+
+        //10/21
+
+        console.log(document.URL);
+        console.log(document['URL']);
+        console.log(document.charset);
+        console.log(document.images.length);
+
+        console.dir(document);
+
+        document.firstElementChild.textContent = "上書き";
+
+
+        for (let i = 0; i < 9; i++) {
+            console.log(i);
+
+        }
+
+
+
+        for (let i = 0; i < 9; i++) {
+            console.log('7*' + i + '=' + (i * 7));
+            //文字列の連結(JavaScriptは文字列型が入った瞬間に文字列の連結になるので計算は先)
+        }
     </script>
 </body>
 

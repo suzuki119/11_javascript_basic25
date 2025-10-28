@@ -28,3 +28,9 @@ element.addEventListener("click", function () {
 
         });
         ```
+
+
+### 10月30日
+```
+for(let i=0;i<XXX; i++)
+```

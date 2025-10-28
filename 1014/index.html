@@ -48,11 +48,22 @@
             }
         }
 
-        .gallery .active {
-            display: inline;
+        img {
+            opacity: 0;
+            transition: all 0.5s;
         }
 
-        .gallery .hidden {
+        img.show {
+            opacity: 1;
+        }
+
+        .gallery img.active {
+            display: inline;
+            width: 50%;
+            height: auto;
+        }
+
+        .gallery img.hidden {
             display: none;
         }
     </style>
@@ -76,9 +87,79 @@
 
 
     <script>
+
+
+        //① buttonと画像の要素を全て取得
         const buttons = document.querySelectorAll('button');
+        const images = document.querySelectorAll(".gallery img");
         //Nodelistが作られる
+
         console.log(buttons);
+        console.log(images);
+
+        //② buttonsの各要素にイベント（ボタンをクリック）を設定
+
+        buttons[0].addEventListener('click', function () {
+            console.log('all');
+        });
+        buttons[1].addEventListener('click', function () {
+            console.log('animal');
+        });
+        buttons[2].addEventListener('click', function () {
+            console.log('scenery');
+        });
+        buttons[3].addEventListener('click', function () {
+            console.log('food');
+        });
+        //配列buttonsを参照
+
+
+
+
+
+
+
+        //buttonsのlength(長さ)は４なので４回繰り返す
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener('click', function () {
+                //nameプロパティの参照
+                console.log("buttonname=" + buttons[i].name);
+                //③ for文で画像ファイルのclassを取得
+
+                for (let j = 0; j < images.length; j++) {
+                    //④ buttonのname属性とimgのclass属性で判定
+                    if (buttons[i].name === "all") {
+                        images[j].classList.remove('hidden');
+                        images[j].classList.add('active');
+
+                        //(buttons[i].name === images[j].className)
+                    } else if (images[j].
+                        //⑥ allの場合の判定を追加
+                        classList.contains(buttons[i].name))
+                        {
+                        //⑤ classListオブジェクトでclassを操作
+                        images[j].classList.add('active');
+                        images[j].classList.remove('hidden');
+                    } else {
+                        images[j].classList.remove('active');
+                        images[j].classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        //読み込まれたら（イベントshow）
+        //loadは画像や文章が読み込まれると発動する
+        window.addEventListener('load', function () {
+            for (let i = 0; i < images.length; i++) {
+
+                setTimeout(function () {
+                    images[i].classList.add('show');
+                }, (i + 1) * 200); // i × 0.5秒ずつ遅らせて表示
+            }
+        })
+
+
     </script>
 </body>
 

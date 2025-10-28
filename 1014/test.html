@@ -1,0 +1,60 @@
+question4.html
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3週目 小テスト用ベースHTML</title>
+</head>
+
+<body>
+    <!-- Q3用：name属性を持つボタン（document.querySelectorで取得可） -->
+    <div class="buttons">
+        <button name="all">すべて</button>
+    </div>
+
+    <!-- Q4・Q5用：画像（複数）。-->
+    <div class="gallery">
+        <img id="photo" src="images/animal1.jpg" alt="動物1" class="animal img">
+        <img src="images/scenery1.jpg" alt="風景1" class="scenery img">
+        <img src="images/food1.jpg" alt="食べ物1" class="food img">
+        <img src="images/animal2.jpg" alt="動物2" class="animal img">
+    </div>
+
+    <!-- 回答はGoogleフォームに記述する想定。ここで動作確認してください -->
+    <script>
+        // Q2用配列
+        const fruits = ['りんご', 'みかん', 'ぶどう'];
+        for (let i = 0; i < 3; i++) {
+            console.log(fruits[i]);
+
+        }
+
+        //q3
+        const button = document.querySelector('button').name;
+        console.log(button);
+
+        
+        // Q4用変数
+        const photo = document.querySelector('#photo');
+
+        if (photo.className === "animal") {
+            console.log("持っている");
+        } else {
+            console.log("持ってない");
+        }
+
+        // Q5用変数
+        const images = document.querySelectorAll('img');
+        console.log(images);
+        for (let i = 0; i < images.length; i++) {
+            images[i].classList.add("show");
+        }
+
+    </script>
+</body>
+
+</html>

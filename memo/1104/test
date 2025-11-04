@@ -1,0 +1,23 @@
+//ボタンを押して当たったら背景がピンク色、はずれたらグレー色になるようにしてください。
+
+// 1. button要素を全て取得して、変数buttonsに代入する
+const bodyelm=document.querySelector('.body');
+
+const buttons=document.querySelectorAll('.buttons button');
+// 2. buttonsの要素数分、ランダムな数（0〜8）を生成する
+const randomNum=Math.floor(Math.random() * buttons.length);
+// 3. for文で、buttonsの要素数分、クリックイベントを設定する
+for(let i=0;i<buttons.length;i++){
+  buttons[i].addEventListener('click', function () {
+    // 4. もし、ランダムな数値と、クリックした要素のインデックスが一致したら、ピンク色にする（winnerクラスを追加して、loserクラスを削除する）
+    if(i === randomNum){
+      bodyelm.classList.add("winner");
+      bodyelm.classList.remove("loser");
+      console.log("yes")
+    }else{
+     bodyelm.classList.remove("winner"); bodyelm.classList.add("loser");
+      console.log("no");
+    }
+// 5. もし、ランダムな数数値と、クリックした要素のインデックスが一致しなかったら、グレー色にする（loserクラスを追加して、winnerクラスを削除する）
+  });
+}

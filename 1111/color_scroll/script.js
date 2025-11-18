@@ -45,21 +45,38 @@ document.body.style.backgroundColor =
 
 
 
-//4スクロールするたびにイベント
-//5documentの縦の長さ取得
-//6 1 / 4進んだら色が変わるようにする
-//7スクロールを4分割
-//8スクロール量を計算
-//9変数scrollableを4分割
+
+let topBtn = document.querySelector(".topBtn");
+
+topBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+window.addEventListener("scroll", function () {
+    if (window.scrollY >= 100) {
+        topBtn.textContent = "ToTop";
+    }
+    else {
+        topBtn.textContent = "ToScloll";
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 //10関数の定義
-//11関数の呼び出し（実行）の実引数
-
-
-
-
-
-
-
 function changeColor(num) {
     document.body.style.backgroundColor = "rgb(" + settingColors[num].r + "," + settingColors[num].g + "," + settingColors[num].b + ")";
 }
@@ -82,12 +99,14 @@ console.log(scrollY);//現在の位置
 
 
 
-
+//4スクロールするたびにイベント
 window.addEventListener("scroll", function () {
 
+    //5documentの縦の長さ取得
     //画面の高さを参照(windowそのものの高さ)
     const viewheight = document.documentElement.clientHeight;
 
+    //8スクロール量を計算
     //スクロールできる長さ(サイトのスクロールできる全長)
     const scrollable = fullheight - viewheight;
     console.log(viewheight);
@@ -97,8 +116,12 @@ window.addEventListener("scroll", function () {
     const scrollY = window.scrollY;
     console.log(scrollY);
 
+    //7スクロールを4分割
+    //6 1 / 4進んだら色が変わるようにする
+    //9変数scrollableを4分割
     // どのエリア（1〜4）にいるかを判断し関数に命令
     if (scrollY <= scrollable / 4) {
+        //11関数の呼び出し（実行）の実引数
         changeColor(0);
     } else if (scrollY <= scrollable / 2) {
         changeColor(1);

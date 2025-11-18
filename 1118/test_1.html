@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .field {
+            height: 2000px;
+            position: relative;
+        }
+
+        .target {
+            position: absolute;
+            font-size: 2em;
+            padding: 10px;
+            font-weight: ;
+
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="field">
+        <button class="target">ここをクリック</button>
+    </div>
+    <script>
+        const btn = document.querySelector('.target');
+        const y = Math.floor(Math.random() * 1500);
+        btn.style.top = y + 'px';
+
+        btn.addEventListener("click", function () {
+            console.log(window.scrollY);
+        });
+        window.addEventListener('scroll', function () {
+
+            if (window.scrollY > parseInt(btn.style.top)) {
+                console.log("ボタンより下です");
+            } else if (window.scrollY < parseInt(btn.style.top)) {
+                console.log("ボタンより上です");
+            }
+        });
+    </script>
+</body>
+
+</html>

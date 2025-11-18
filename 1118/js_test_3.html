@@ -1,0 +1,20 @@
+<h1>カラーボタン</h1>
+<div class="colorlist">
+    <button id="red">赤色</button>
+    <button id="blue">青色</button>
+    <button id="green">緑色</button>
+    <button id="yellow">黄色</button>
+    <button id="pink">桃色</button>
+    <button id="purple">紫色</button>
+</div>
+<script>
+    //ここに記述する
+    const colors = document.querySelectorAll("button");
+    console.log(colors);
+
+    for (let i = 0; i < colors.length; i++) {
+        colors[i].addEventListener("click", function () {
+            document.body.style.backgroundColor = colors[i].id;
+        });
+    }
+</script>

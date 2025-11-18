@@ -1,0 +1,75 @@
+<style>
+    section {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+    }
+
+    img {
+        width: 50%;
+    }
+
+    .unit {
+        font-size: 1.5em;
+    }
+
+    .price {
+        p {
+            display: inline-block;
+        }
+
+        button {
+            display: inline-block;
+            margin: 0 5px;
+            font-size: 1.5em;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <section>
+        <h1>醤油らーめん</h1>
+        <div class="ramenArea">
+            <img src="https://4.bp.blogspot.com/-SmXTKx3nBcA/UrlnHYwXxoI/AAAAAAAAcOA/erB3n3GC80E/s800/ramen_syouyu.png"
+                alt="醤油ラーメン" />
+            <p class="unit"><span>550</span>円</p>
+        </div>
+        <div class="price">
+            <button class="minus">-</button>
+            <p class="num">0</p>
+            <button class="plus">+</button>
+        </div>
+        <p>合計：<span class="result"></span></p>
+    </section>
+
+
+    <script>
+        let price = 550;
+        let num = 0;
+        //ここから記述してください。
+        let numbox = document.querySelector(".num")
+        const plusBtn = document.querySelector(".plus");
+        const minusBtn = document.querySelector(".minus");
+        let result = 0;
+        let resultbox = document.querySelector(".result");
+
+        minusBtn.addEventListener("click", function () {
+            if (num > 0) {
+                resultmath(-1);
+            }
+        })
+
+        plusBtn.addEventListener("click", function () {
+            resultmath(1);
+        })
+
+        function resultmath(n) {
+            num = num + n;
+            numbox.textContent = num;
+            result = num * price;
+            resultbox.textContent = result + "円";
+            console.log(result);
+        }
+
+    </script>

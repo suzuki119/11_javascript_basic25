@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="text"></div>
+
+    <script>
+        const title = document.querySelector(".text");
+        title.innerHTML = '<h1>hello</h1>';
+
+        const name = "alice";
+        console.log(`私の名前は${name}です`)
+
+        const item = {
+            name: 'Pen',
+            price: 120
+        };
+        const productName = item.name;
+        console.log(productName);
+
+        const fruit = {
+            type: 'Apple',
+            color: 'red'
+        };
+        fruit.color = "green";
+        console.log(fruit.color);
+
+        const animals = [
+            { name: 'ポチ', age: 5 },
+            { name: 'たま」', age: 2 }
+        ];
+
+        const animalName = animals[1].name;
+        console.log(animalName);
+
+
+        function greet(name) {
+            console.log('こんにちは ' + name + ' さん');
+        }
+
+        greet("Yuta");
+
+        function isBig(num) {
+            if (num >= 100) {
+                console.log(Boolean(1));
+            } else if (num < 100) {
+                console.log(Boolean(0));
+            }
+
+        }
+        isBig(150);
+
+
+
+
+        function double(num) {
+            return num * 2;
+        }
+        console.log(double(5));
+        /*
+                function makeJuice(fruits) {
+                    console.log(fruits + "ジュース");
+                }
+                */
+
+
+
+        const makeJuice = function (fruit) {
+            console.log(fruit + "ジュース");
+        }
+
+        makeJuice("りんご");
+
+    </script>
+</body>
+
+</html>

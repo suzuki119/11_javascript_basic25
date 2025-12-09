@@ -27,10 +27,18 @@ elementA.textContent = elementB;
 element.addEventListener("click", function () {
 
         });
-        ```
+```
 
 
 ### 10月30日
 ```
 for(let i=0;i<XXX; i++)
 ```
+
+### オブジェクトとキー
+        const animals = [
+            { name: 'ポチ', age: 5 },
+            { name: 'たま」', age: 2 }
+        ];
+
+        const animalName = animals[1].name;

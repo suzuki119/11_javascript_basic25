@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12星座</title>
+    <style>
+        body {
+            background: radial-gradient(#2b1055, #000);
+            color: #fff;
+            font-family: serif;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .inner {
+            margin: 0 10%;
+        }
+
+        div.hidden {
+            display: none;
+        }
+
+        #result {
+            opacity: 0;
+            height: 25vh;
+            transition: 0.5s;
+            margin-top: 20px;
+            border: #fff 2px solid;
+            border-radius: 15px;
+            margin: 15vh 0;
+            padding: 30px 0;
+        }
+
+        #result.show {
+            opacity: 1;
+        }
+
+        .starlist {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .starlist div {
+            transition: all 1s;
+            cursor: pointer;
+            background: rgba(255, 121, 235, 0.326);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+        }
+
+        .starlist div:hover {
+            background: rgba(255, 245, 99, 0.704);
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="inner">
+        <div id="result"></div>
+        <div class="starlist">
+            <div>
+                牡羊
+            </div>
+            <div>
+                牡牛
+            </div>
+            <div>
+                双子
+            </div>
+            <div>
+                蟹
+            </div>
+            <div>
+                獅子
+            </div>
+            <div>
+                乙女
+            </div>
+            <div>
+                天秤
+            </div>
+            <div>
+                蠍
+            </div>
+            <div>
+                射手
+            </div>
+            <div>
+                山羊
+            </div>
+            <div>
+                水瓶
+            </div>
+            <div>
+                魚
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // 配列リテラル
+        const luckList = ["極吉", "超吉", "巨吉", "大吉", "中吉", "小吉", "薄吉", "小凶", "凶", "大凶", "超凶", "極凶"];
+
+        // ラッキーアイテム
+        const items = ["紅茶", "オレンジ", "車", "桜", "松", "桶", "腕", "亀", "栗", "鈴", "サンダル", "ラジカセ"];
+
+        const thisresult = document.querySelector("#result");
+
+        const numbers = [];
+
+        const getRandomElement = function (array) {
+            return array[Math.floor(Math.random() * array.length)];
+        };
+
+        const getFortune = function () {
+            const luckIndex = Math.floor(Math.random() * luckList.length);
+
+            const numberIndex = Math.floor(Math.random() * numbers.length);
+
+            const itemIndex = Math.floor(Math.random() * items.length);
+
+
+            //配列移動、削除
+            const luck = luckList.splice(luckIndex, 1)[0];
+            const number = numbers.splice(numberIndex, 1)[0];
+            const item = items.splice(itemIndex, 1)[0];
+
+            return {
+                luck: luck,
+                item: item,
+                number: number,
+            };
+        };
+
+        const starlist = document.querySelectorAll(".starlist div");
+        console.log(starlist);
+
+
+
+        for (let i = 0; i < starlist.length; i++) {
+            numbers.push(i + 1);
+
+            starlist[i].addEventListener("click", function () {
+
+                const resultObj = getFortune(); // 関数式を実行
+
+                console.log(resultObj);
+                console.log(numbers);
+                starlist[i].classList.add("hidden");
+
+                thisresult.innerHTML =
+                    `
+    <h2>${resultObj.luck}</h2>
+    <p>ラッキーナンバー：${resultObj.number}</p>
+    <p>アイテム：${resultObj.item}</p>
+    `;
+                //$で変数として確定させる,(``)が必要
+
+                thisresult.classList.add("show"); // アニメーション
+
+
+
+            });
+        }
+        console.log(numbers);
+
+    </script>
+</body>
+
+</html>

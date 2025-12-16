@@ -143,13 +143,13 @@ console.log(numbers);
 
 
 
-const slotResult = document.getElementById("slot-result");
-const startButton = document.getElementById("startBtn");
+const slotResult = document.querySelector("#slot-result");
+const startButton = document.querySelector("#startBtn");
 const stopButtons = document.querySelectorAll(".stopBtn");
 
 const symbols = ["🍒", "🍋", "🔔", "⭐", "🍉", "7️⃣"];
 
-// 初期表示
+// 初期表示の関数
 function init() {
     slotResult.innerHTML = `
             <div class="resultlist">
@@ -166,16 +166,18 @@ let timers = [null, null, null];
 let indexes = [0, 0, 0];
 let isSpinning = false;
 
+const slots = document.querySelectorAll(".slot");
+
 // スタート
 startButton.addEventListener("click", () => {
-    if (isSpinning) return;
-    isSpinning = true;
 
-    const slots = document.querySelectorAll(".slot");
+
+    isSpinning = true;
 
     for (let i = 0; i < 3; i++) {
         slots[i].classList.add("spinning");
 
+        //内容を変えるのを一定時間ごとに繰り返す
         timers[i] = setInterval(() => {
             slots[i].textContent = symbols[indexes[i] % symbols.length];
             indexes[i]++;
@@ -189,13 +191,16 @@ stopButtons.forEach(btn => {
         const i = btn.dataset.index;
         const slots = document.querySelectorAll(".slot");
 
+        //タイマーズ[i]になにもないなら
         if (!timers[i]) return;
 
+        //setIntervalの停止
         clearInterval(timers[i]);
         timers[i] = null;
         slots[i].classList.remove("spinning");
 
         // 全部止まったらリセット可能に
+        //everyは、配列の全ての要素が指定した条件を満たす場合にtrue(全体にand？)
         if (timers.every(t => t === null)) {
             isSpinning = false;
         }

@@ -42,3 +42,17 @@ for(let i=0;i<XXX; i++)
         ];
 
         const animalName = animals[1].name;
+
+### ajax
+ajaxは再読み込みがサーバー側（ctrl+r）の必要のない非同期処理で、スクロールやクリックに反応し、新しくデータを持ってくる
+Googleマップはスクロールとしてコレを使用している
+### fetch
+fetch('読み込みたいURL'
+).then(function (response) {
+    //取得したJSONをオブジェクトに変換する
+    return response.json();
+
+}).then(function (json) {
+    処理
+
+}).catch(エラーの場合);

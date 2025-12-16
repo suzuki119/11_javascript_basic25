@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <h1>to Scroll</h1>
+
+    <script>
+
+        function getTotalPrice(price) {
+            const tax = 0.1;
+            return Math.floor(price * tax);
+
+        }
+
+        console.log(getTotalPrice(1000));
+
+        const site = {
+            title: 'Portfolio',
+
+            author: 'Yamada',
+
+            themeColor: '#ff9900'
+        }
+        console.log(site);
+
+        isInStock = (stock) => {
+            if (stock > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(isInStock(1));
+
+        const items = ['財布', '鍵', 'スマホ'];
+
+
+        function getCount(item) {
+            const answer = "持ち物は" + item.length + "個です";
+            return answer;
+        };
+
+        console.log(getCount(items));
+
+
+
+
+
+
+        const product = { name: 'ノート', price: 300 };
+
+        function getSalePrice(products) {
+            products.price = Math.floor(products.price * 0.8);
+            return products;
+
+        }
+        console.log(getSalePrice(product));
+
+
+    </script>
+</body>
+
+</html>

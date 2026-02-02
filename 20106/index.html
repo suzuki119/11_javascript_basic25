@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        function main() {
+            const i = 1;
+        }
+        //console.log(i);<関数スコープの呼び出しでエラーになる
+
+        if (true) {
+            const j = 2;
+        }
+        //console.log(j);<ブロックスコープの呼び出しでエラーになる
+
+        const k = 3;
+        if (true) {
+            console.log(k); //<グローバルスコープなので、外側から参照できるが予期せぬバグも起こりやすい
+        }
+
+        const obj = {
+            name: "太郎",
+            age: 20,
+
+
+            //メソッド=関数式
+            greet: function () {
+                //thisはオブジェクト自身の中にあるプロパティを参照する
+                console.log(`こんにちは、${this.name}です。年齢は${this.age}歳です。`);
+                //${}を使うのでテンプレートリテラル（バッククォート `` を使う）
+            }
+
+        };
+
+        obj.name = "次郎";//プロパティの書き換え
+
+        obj.greet();//関数実行（呼び出し）
+        //console.log();もメソッド
+        // （windowオブジェクト　+ 組み込み関数）
+
+
+        const interests = ['読書', '料理', 'キャンプ'];
+        const count = interests.length;
+        console.log(count); //.lengthは配列の要素数を返す
+        interests.push('散歩');
+        console.log(interests); //['読書', '料理', 'キャンプ', '散歩']（pushで配列の末尾に要素を追加）
+        interests.pop();
+        console.log(interests); //['読書', '料理', 'キャンプ']（popで配列の末尾の要素を取り出す）
+
+        const fruits = ['みかん', 'りんご', 'バナナ'];
+        const check1 = fruits.includes('りんご');
+        console.log(check1); //true
+        const check2 = fruits.includes('ぶどう');
+        console.log(check2); //false
+        //includesで配列に特定の要素が含まれているかを調べる(true/falseで返す)
+
+        const joined = interests.join('と');
+        console.log(joined); //読書と料理とキャンプ（joinで配列の要素を結合し一つの文字列に）
+
+        const splits = joined.split('と');
+        console.log(splits); //['読書', '料理', 'キャンプ']（splitで文字列を分割し配列に）)
+
+        const nodes = document.querySelectorAll('div');
+        console.log(nodes); //NodeList(3)
+        //nodes.push('新しい要素'); 使えない
+        //使うためには、配列に変換してから使う必要がある。
+        const array = Array.from(nodes);
+        array.push('新しい要素');
+        console.log(array); //['1', '2', '3', '新しい要素']
+    </script>
+
+</body>
+
+</html>

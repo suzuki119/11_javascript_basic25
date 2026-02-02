@@ -62,3 +62,21 @@ fetch('読み込みたいURL'
 .catch(function (error){
     (エラーの場合)
 });
+
+### 1月6日
+グローバルスコープ => 関数スコープ => ブロックスコープ
+
+        function main() {
+            const i = 1;
+        }
+        //console.log(i);<関数スコープの呼び出しでエラーになる
+
+        if (true) {
+            const j = 2;
+        }
+        //console.log(j);<ブロックスコープの呼び出しでエラーになる
+
+        const k = 3;
+        if (true) {
+            console.log(k); //<グローバルスコープなので、外側から参照できるが予期せぬバグも起こりやすい
+        }
